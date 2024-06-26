@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Reddit Gluten-Free Search</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        #searchForm {
+            text-align: center;
+        }
+        input[type="text"] {
+            padding: 10px;
+            font-size: 16px;
+            width: 80%;
+            margin-bottom: 10px;
+        }
+        input[type="submit"] {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #0079d3;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="searchForm">
+        <h2>Search Reddit Gluten-Free</h2>
+        <form onsubmit="performSearch(event)">
+            <input type="text" id="searchTerm" placeholder="Enter search term" required>
+            <br>
+            <input type="submit" value="Search">
+        </form>
+    </div>
+    <script>
+        function performSearch(event) {
+            event.preventDefault();
+            var searchTerm = document.getElementById('searchTerm').value;
+            var searchUrl = 'https://www.reddit.com/r/glutenfree/search/?q=' + encodeURIComponent(searchTerm);
+            window.open(searchUrl, '_blank');
+        }
+    </script>
+</body>
+</html>
